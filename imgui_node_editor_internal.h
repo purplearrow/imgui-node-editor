@@ -1468,6 +1468,7 @@ struct EditorContext
     }
 
     ImDrawList* GetDrawList() { return m_DrawList; }
+    ImDrawList* GetDrawListOfImageLayer();
 
 private:
     void LoadSettings();

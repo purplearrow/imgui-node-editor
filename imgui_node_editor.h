@@ -271,6 +271,7 @@ EditorContext* GetCurrentEditor();
 EditorContext* CreateEditor(const Config* config = nullptr);
 void DestroyEditor(EditorContext* ctx);
 const Config& GetConfig(EditorContext* ctx = nullptr);
+ImDrawList* GetDrawListOfImageLayer();
 
 Style& GetStyle();
 const char* GetStyleColorName(StyleColor colorIndex);
