@@ -405,6 +405,7 @@ bool GetLinkPins(LinkId linkId, PinId* startPinId, PinId* endPinId); // pass nul
 
 bool PinHadAnyLinks(PinId pinId);
 
+void GetViewRegion(float& xMin, float& xMax, float& yMin, float& yMax);
 ImVec2 GetScreenSize();
 ImVec2 ScreenToCanvas(const ImVec2& pos);
 ImVec2 CanvasToScreen(const ImVec2& pos);

@@ -741,6 +741,14 @@ bool ax::NodeEditor::PinHadAnyLinks(PinId pinId)
     return s_Editor->PinHadAnyLinks(pinId);
 }
 
+void ax::NodeEditor::GetViewRegion(float& xMin, float& xMax, float& yMin, float& yMax)
+{
+    auto rect = s_Editor->GetViewRect();
+    xMin = rect.Min.x;
+    yMin = rect.Min.y;
+    xMax = rect.Max.x;
+    yMax = rect.Max.y;
+}
 ImVec2 ax::NodeEditor::GetScreenSize()
 {
     return s_Editor->GetRect().GetSize();
