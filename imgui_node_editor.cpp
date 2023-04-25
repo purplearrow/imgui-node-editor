@@ -5787,7 +5787,7 @@ std::string ed::Config::Load()
             LoadSettings(const_cast<char*>(data.data()), UserPointer);
         }
     }
-    else if (SettingsFile)
+    else if (!SettingsFile.empty())
     {
         std::ifstream file(SettingsFile);
         if (file)
@@ -5833,7 +5833,7 @@ bool ed::Config::Save(const std::string& data, SaveReasonFlags flags)
     {
         return SaveSettings(data.c_str(), data.size(), flags, UserPointer);
     }
-    else if (SettingsFile)
+    else if (!SettingsFile.empty())
     {
         std::ofstream settingsFile(SettingsFile);
         if (settingsFile)
