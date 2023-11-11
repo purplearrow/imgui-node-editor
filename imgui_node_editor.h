@@ -425,6 +425,7 @@ IMGUI_NODE_EDITOR_API bool GetLinkPins(LinkId linkId, PinId* startPinId, PinId* 
 
 IMGUI_NODE_EDITOR_API bool PinHadAnyLinks(PinId pinId);
 
+IMGUI_NODE_EDITOR_API void GetViewRegion(float& xMin, float& xMax, float& yMin, float& yMax);
 IMGUI_NODE_EDITOR_API ImVec2 GetScreenSize();
 IMGUI_NODE_EDITOR_API ImVec2 ScreenToCanvas(const ImVec2& pos);
 IMGUI_NODE_EDITOR_API ImVec2 CanvasToScreen(const ImVec2& pos);
