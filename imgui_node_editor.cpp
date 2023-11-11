@@ -94,19 +94,20 @@ namespace ed = ax::NodeEditor::Detail;
 //------------------------------------------------------------------------------
 static const int c_BackgroundChannelCount = 1;
 static const int c_LinkChannelCount       = 4;
-static const int c_UserLayersCount        = 5;
+static const int c_UserLayersCount        = 6;   //purplearrow change from 5 to 6
 
-static const int c_UserLayerChannelStart  = 0;
-static const int c_BackgroundChannelStart = c_UserLayerChannelStart  + c_UserLayersCount;
-static const int c_LinkStartChannel       = c_BackgroundChannelStart + c_BackgroundChannelCount;
-static const int c_NodeStartChannel       = c_LinkStartChannel       + c_LinkChannelCount;
+static const int c_UserLayerChannelStart  = 0;                                                      //0
+static const int c_BackgroundChannelStart = c_UserLayerChannelStart  + c_UserLayersCount;           //5
+static const int c_LinkStartChannel       = c_BackgroundChannelStart + c_BackgroundChannelCount;    //6
+static const int c_NodeStartChannel       = c_LinkStartChannel       + c_LinkChannelCount;          //10
 
 static const int c_BackgroundChannel_SelectionRect = c_BackgroundChannelStart + 0;
 
 static const int c_UserChannel_Content         = c_UserLayerChannelStart + 1;
 static const int c_UserChannel_Grid            = c_UserLayerChannelStart + 2;
-static const int c_UserChannel_HintsBackground = c_UserLayerChannelStart + 3;
-static const int c_UserChannel_Hints           = c_UserLayerChannelStart + 4;
+static const int c_UserChannel_IMAGE_LAYER     = c_UserLayerChannelStart + 3;   //added by purplearrow
+static const int c_UserChannel_HintsBackground = c_UserLayerChannelStart + 4;   //purplearrow change from 3 to 4
+static const int c_UserChannel_Hints           = c_UserLayerChannelStart + 5;   //purplearrow change from 4 to 5
 
 static const int c_LinkChannel_Selection  = c_LinkStartChannel + 0;
 static const int c_LinkChannel_Links      = c_LinkStartChannel + 1;
@@ -2287,7 +2288,11 @@ void ed::EditorContext::Flow(Link* link, FlowDirection direction)
 {
     m_FlowAnimationController.Flow(link, direction);
 }
-
+ImDrawList* ed::EditorContext::GetDrawListOfImageLayer()
+{
+    m_DrawList->ChannelsSetCurrent(c_UserChannel_IMAGE_LAYER);
+    return m_DrawList;
+}
 void ed::EditorContext::SetUserContext(bool globalSpace)
 {
     const auto mousePos = ImGui::GetMousePos();

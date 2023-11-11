@@ -93,6 +93,11 @@ ax::NodeEditor::EditorContext* ax::NodeEditor::GetCurrentEditor()
     return reinterpret_cast<ax::NodeEditor::EditorContext*>(s_Editor);
 }
 
+ImDrawList* ax::NodeEditor::GetDrawListOfImageLayer()
+{
+    return s_Editor->GetDrawListOfImageLayer();
+}
+
 ax::NodeEditor::Style& ax::NodeEditor::GetStyle()
 {
     return s_Editor->GetStyle();

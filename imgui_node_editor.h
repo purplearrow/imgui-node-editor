@@ -291,6 +291,7 @@ IMGUI_NODE_EDITOR_API EditorContext* GetCurrentEditor();
 IMGUI_NODE_EDITOR_API EditorContext* CreateEditor(const Config* config = nullptr);
 IMGUI_NODE_EDITOR_API void DestroyEditor(EditorContext* ctx);
 IMGUI_NODE_EDITOR_API const Config& GetConfig(EditorContext* ctx = nullptr);
+IMGUI_NODE_EDITOR_API ImDrawList* GetDrawListOfImageLayer();
 
 IMGUI_NODE_EDITOR_API Style& GetStyle();
 IMGUI_NODE_EDITOR_API const char* GetStyleColorName(StyleColor colorIndex);
